@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.time.OffsetDateTime;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 
@@ -20,7 +21,7 @@ import jakarta.annotation.Generated;
  * Customer
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-09-13T21:28:16.300630-06:00[America/Mexico_City]", comments = "Generator version: 7.15.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-09-13T22:11:12.922905-06:00[America/Mexico_City]", comments = "Generator version: 7.15.0")
 public class Customer implements Serializable {
 
   private static final long serialVersionUID = 1L;

@@ -10,7 +10,7 @@
     <artifactId>skeleton-api</artifactId>
     <packaging>jar</packaging>
     <properties>
-        <exec.mainClass>com.wolfbear.skeleton.api.SkeletonApi</exec.mainClass>
+        <exec.mainClass>com.wolfbear.skeleton.SkeletonApi</exec.mainClass>
     </properties>
     
     <dependencies>

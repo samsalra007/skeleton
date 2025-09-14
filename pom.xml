@@ -11,6 +11,10 @@
     </properties>
     <modules>
         <module>skeleton-contract</module>
+        
+        <module>skeleton-commons</module>
+        <module>skeleton-dao</module>
+        
         <module>skeleton-api</module>
     </modules>
 </project>

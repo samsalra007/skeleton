@@ -3,7 +3,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package com.wolfbear.skeleton.api;
+package com.wolfbear.skeleton.contract.api;
 
 import com.wolfbear.skeleton.contract.model.Customer;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
@@ -18,25 +18,29 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.lang.Nullable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-09-13T21:28:16.963700-06:00[America/Mexico_City]", comments = "Generator version: 7.15.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2025-09-13T22:14:49.764899-06:00[America/Mexico_City]", comments = "Generator version: 7.15.0")
 @Validated
 @Tag(name = "Customers", description = "the Customers API")
 public interface CustomersApi {
 
-    default CustomersApiDelegate getDelegate() {
-        return new CustomersApiDelegate() {};
+    default Optional<NativeWebRequest> getRequest() {
+        return Optional.empty();
     }
 
     public static final String PATH_LIST_CUSTOMERS = "/customers/";
@@ -64,7 +68,17 @@ public interface CustomersApi {
     default ResponseEntity<List<Customer>> listCustomers(
         
     ) {
-        return getDelegate().listCustomers();
+        getRequest().ifPresent(request -> {
+            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "[ { \"lastName\" : \"lastName\", \"name\" : \"name\", \"id\" : \"id\" }, { \"lastName\" : \"lastName\", \"name\" : \"name\", \"id\" : \"id\" } ]";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
+                    break;
+                }
+            }
+        });
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+
     }
 
 }

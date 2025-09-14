@@ -1,4 +1,4 @@
-package com.wolfbear.skeleton.api;
+package com.wolfbear.skeleton.contract.api;
 
 import org.springframework.web.context.request.NativeWebRequest;
 
