@@ -1,0 +1,76 @@
+# // I want an API for CRUD demo customers
+# https://localhost:{port}/{app}/{api-prefix}
+
+openapi: 3.0.1
+info:
+  title: App API Demo
+  version: 1.0.0
+
+servers:
+  - url: https://localhost:{port}/{app}/{prefix}
+    description: The App API Demo Server
+    variables:
+      port:
+        enum:
+          - "8443"
+          - "443"
+        default: "8443"
+      app:
+        default: app
+        description: App Demo Name
+      prefix:
+        default: v1
+
+paths:
+  /customers/:
+    get:
+      tags: [Customers]
+      operationId: ListCustomers
+      summary: List registered customers in system
+      responses:
+        "200":
+          description: "Successfully"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lastName:
+          type: string
+
+
+# ListCustomers
+# GET 200 ok
+# 404 not found
+# /customers
+
+# AddCustomer
+# POST 200 ok
+# 404 not found
+# /customers
+
+# ReadCustomer
+# GET 200 ok
+# 404 not found
+# /customers/id
+
+# UpdateCustomer
+# PUT 200 ok
+# 404 not found
+# /customers/id
+
+# DeleteCustomer
+# DELETE 200 ok
+# 404 not found
+# /customers/id
